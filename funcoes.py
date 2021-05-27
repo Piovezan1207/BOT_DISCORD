@@ -54,6 +54,6 @@ def tirinha(texto):
     #bot.send_message(-1001182585528, Nome)
     #bot.send_photo(chat_id=-1001182585528, photo=open(nome, 'rb'))
 
-tirinha("mano que que ta acontecendo")
+
 
 
