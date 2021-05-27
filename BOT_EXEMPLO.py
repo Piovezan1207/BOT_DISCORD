@@ -1,13 +1,13 @@
 import discord
 import asyncio
-import os
+#import os
 from discord.ext import commands, tasks
 from discord.utils import get
-import random
-import time
+#import random
+#import time
 import requests
 from itertools import cycle
-import youtube_dl
+#import youtube_dl
 import funcoes
 
 
