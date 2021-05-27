@@ -1,3 +1,26 @@
+#Programas necessários:
+# git
+# Heroku
+
+#heroku buildbacks:
+# heroku/python
+# https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
+# https://github.com/xrisk/heroku-opus.git
+
+#Para subir a aplicação pro heroku:
+# 1º - Te ruma conta no Heroku e os softwares necessários instalados
+# 2º - Criar o projeto no heroku e salvar o nome (site -https://dashboard.heroku.com/apps )
+# 3º - Ir nos settongs do projeto e adicionar os buildpacks mostrados anteriormente
+# 4º - No terminal, digitar os seguintes comandos:
+#       git init
+#       heroku git:remote -a nome 
+#       git add .
+#       git commit -am "Nome qualquer!"
+#       git push heroku master
+#  Após digitar esses comandos, a aplicação vai subir, então devemos aguardar.
+# 5º - Iniciar a aplicação pelo site do Heroku (aba resources)
+
+
 import discord
 import asyncio
 #import os
@@ -82,15 +105,26 @@ async def info(ctx, *, member: discord.Member):
     await ctx.send(f'Entrou as: {member.joined_at}\nnick: {member.nick}\nGuild: {member.guild}\nStatus: {member.status}\navatar: {member.avatar_url}\nRelação: {member.relationship}')
 
 @client.command()
-async def imagem(ctx, *, member: discord.Member):
+async def imagem(ctx, member: discord.Member, texto):
     print("Escrevendo na foto do {}".format(member))
     url_imagem = member.avatar_url
     response = requests.get(url_imagem)
     file = open("pessoa.png", "wb")
     file.write(response.content)
     file.close()
-    funcoes.imagem("ESCRITA")
-    await ctx.send(file=discord.File('pessoa.png'))
+    funcoes.imagem(texto)
+    await ctx.send(file=discord.File('pessoa_e.png'))
+
+@client.command()
+async def tirinha(ctx, member: discord.Member, texto):
+    print("Escrevendo na foto do {}".format(member))
+    url_imagem = member.avatar_url
+    response = requests.get(url_imagem)
+    file = open("pessoa.png", "wb")
+    file.write(response.content)
+    file.close()
+    funcoes.tirinha(texto)
+    await ctx.send(file=discord.File('pessoa_b.png'))
 
 @client.event
 async def on_message(message):
@@ -113,5 +147,5 @@ async def role(ctx, user : discord.Member, *, role : discord.Role):
       await ctx.send(f"Adicioando {role} para {user.mention}") 
 
 
-client.run('ODMwODI5NDE5OTUzOTEzODg2.YHMYMQ.8Am35QP1KXUqteA0e_MC2SasNVY')
+client.run('KEY')
 
