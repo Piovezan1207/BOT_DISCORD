@@ -72,7 +72,7 @@ async def on_voice_state_update(member, before, after): #Entra no canal e fala a
         voice = discord.utils.get(client.voice_clients, guild=member.guild) #Reproduz um audio
         voice.play(discord.FFmpegPCMAudio("audios_alunos/{}".format(audios[5])))
 
-        while voice.is_playing(): #Aguarda esse audio acabar
+        while voice.is_playing(): #Aguarda esse audio acabaraw
             await asyncio.sleep(1)
         await voice.disconnect() #Desconecta do canal
 
